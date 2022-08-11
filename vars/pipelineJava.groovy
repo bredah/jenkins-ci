@@ -1,26 +1,24 @@
 def call() {
   pipeline {
+    agent any
     options {
-        buildDiscarder(logRotator(numToKeepStr: '5'))
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')
     }
     environment {
         BUZZ = 'FIZZ'
     }
     stages {
         stage('Build') {
-            agent any
             steps {
                 echo 'Build..'
             }
         }
         stage('Code Metrics') {
-            agent any
             steps {
                 echo 'Code Metrics..'
             }
         }
         stage('Deploy') {
-            agent any
             steps {
                 echo 'Deploying....'
             }
