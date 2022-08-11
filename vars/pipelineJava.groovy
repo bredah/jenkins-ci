@@ -10,17 +10,17 @@ def call() {
     stages {
         stage('Build') {
             steps {
-                echo 'Build..'
+                echo "Build.."
             }
         }
         stage('Code Metrics') {
             steps {
-                echo 'Code Metrics..'
+                echo "Code Metrics.."
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo "Deploying...."
             }
         }
     }
