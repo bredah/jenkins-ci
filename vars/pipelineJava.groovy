@@ -6,10 +6,8 @@ def call() {
     }
     stages {
         stage('Build') {
-          stage('Compile') {
-            steps {
-              echo 'Compile..'
-            }
+          steps {
+            echo 'Build..'
           }
         }
         parallel {
