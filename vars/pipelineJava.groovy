@@ -1,6 +1,5 @@
 def call() {
   pipeline {
-    agent any
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
@@ -9,18 +8,21 @@ def call() {
     }
     stages {
         stage('Build') {
+            agent any
             steps {
-                echo "Build.."
+                echo 'Build..'
             }
         }
         stage('Code Metrics') {
+            agent any
             steps {
-                echo "Code Metrics.."
+                echo 'Code Metrics..'
             }
         }
         stage('Deploy') {
+            agent any
             steps {
-                echo "Deploying...."
+                echo 'Deploying....'
             }
         }
     }
