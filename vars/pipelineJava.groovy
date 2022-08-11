@@ -1,6 +1,10 @@
 def call() {
   pipeline {
     agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+        ansiColor('xterm')
+    }
     environment {
         BUZZ = 'FIZZ'
     }
