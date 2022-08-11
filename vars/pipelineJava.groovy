@@ -6,29 +6,33 @@ def call() {
     }
     stages {
         stage('Build') {
-          steps {
-            echo 'Build..'
-          }
+            steps {
+                echo 'Build..'
+            }
         }
-        stage('Inspection') {
-          parallel {
-            stage('validate') {
-              steps {
-                echo 'Validate..'
-              }
+        stage('Code Metrics') {
+            steps {
+                echo 'Code Metrics..'
             }
-            stage('Test') {
-              steps {
-                echo 'Testing..'
-              }
+        }
+        stage('Test') {
+            parallel {
+                stage('Back-End') {
+                    steps {
+                        echo 'Testing..'
+                    }
+                }
+                stage('Front-End') {
+                    steps {
+                        echo 'Testing..'
+                    }
+                }
             }
-          }
         }
         stage('Deploy') {
-          steps {
-            echo 'Deploying....'
-          }
+            steps {
+                echo 'Deploying....'
+            }
         }
     }
-  }
 }
