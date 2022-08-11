@@ -10,15 +10,17 @@ def call() {
             echo 'Build..'
           }
         }
-        parallel {
-          stage('validate') {
-            steps {
-              echo 'Validate..'
+        stage('Inspection') {
+          parallel {
+            stage('validate') {
+              steps {
+                echo 'Validate..'
+              }
             }
-          }
-          stage('Test') {
-            steps {
-              echo 'Testing..'
+            stage('Test') {
+              steps {
+                echo 'Testing..'
+              }
             }
           }
         }
